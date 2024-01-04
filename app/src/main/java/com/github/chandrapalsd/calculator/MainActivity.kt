@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        hideNavigationBar()
+        setContentView(binding.root)
     }
 
     fun updateDisplay() {
@@ -121,18 +121,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    private fun hideNavigationBar() {
-        if (android.os.Build.VERSION.SDK_INT < 30) {
-            setContentView(binding.root)
-            window.decorView.apply {
-                systemUiVisibility =
-                    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
-            }
-        } else {
-            //TODO
-        }
-
-    }
 
 }
