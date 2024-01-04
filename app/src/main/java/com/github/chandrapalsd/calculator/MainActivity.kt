@@ -3,123 +3,76 @@ package com.github.chandrapalsd.calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import com.github.chandrapalsd.calculator.databinding.ActivityMainBinding
-import net.objecthunter.exp4j.ExpressionBuilder
-import java.lang.ArithmeticException
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private var isLastDigit = false
-    private var isErrorState = false
-    private var inputString: String = ""
-    private var resultString: String = ""
+    private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var drawerLayout: DrawerLayout
+
+    private var _binding: ActivityMainBinding? = null
+    private val binding: ActivityMainBinding get() = _binding!!
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setupNavigationDrawer()
+        replaceFragment(MainCalculatorFragment(), "Calculator")
     }
 
-    fun updateDisplay() {
-        binding.tvInput.text = inputString
-        binding.tvResult.text = "=" + resultString
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
-    fun onDigitClick(view: View) {
-        inputString += (view as Button).text
-        isLastDigit = true
-        evaluateExpr()
-        updateDisplay()
+    private fun replaceFragment(fragment: Fragment, title: String) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frameLayout, fragment)
+        fragmentTransaction.commit()
+        drawerLayout.closeDrawers()
+        setTitle(title)
     }
-    fun onDecimalClick(view: View) {
-        if(!isLastDigit) {
-            inputString += "0"
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true
         }
-        onDigitClick(view)
+        return super.onOptionsItemSelected(item)
     }
 
-    fun onEqualClick(view: View) {
-        if (!isErrorState) {
-            if (isLastDigit && resultString.isNotEmpty()) {
-                inputString = resultString
-                resultString = ""
+    private fun setupNavigationDrawer() {
+
+        drawerLayout = binding.drawerLayout
+
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.navView.setNavigationItemSelectedListener {
+            it.isChecked = true
+            when (it.itemId) {
+                R.id.nav_calculator_basic -> replaceFragment(
+                    MainCalculatorFragment(),
+                    it.title.toString()
+                )
+
+                R.id.nav_demoitem -> Toast.makeText(this, "Demo item", Toast.LENGTH_SHORT).show()
+                else -> throw Exception("OnClick Listener for menu item ${it.title} is not defined")
             }
-        } else {
-            resultString = "Error!"
-        }
-        updateDisplay()
-    }
-
-    fun onAllClearClick(view: View) {
-        inputString = ""
-        resultString = ""
-        isLastDigit = false
-        isErrorState = false
-        updateDisplay()
-    }
-
-    fun onClearClick(view: View) {
-        if (isErrorState) {
-            resultString = ""
+            true
         }
 
-        isErrorState = false
-        inputString = ""
-        isLastDigit = false
-
-        updateDisplay()
     }
-
-    fun onOperatorClick(view: View) {
-        if (isLastDigit) {
-            inputString += (view as Button).text
-            isLastDigit = false
-            resultString = ""
-            updateDisplay()
-        }
-    }
-
-    fun onBackspaceClick(view: View) {
-        if (inputString.isNotEmpty()) {
-            inputString = inputString.dropLast(1)
-            if (inputString.isEmpty()) {
-                onAllClearClick(view)
-            } else {
-                val lastChar = inputString.last()
-                if (lastChar.isDigit()) {
-                    isLastDigit = true
-                    evaluateExpr()
-                    updateDisplay()
-                } else {
-                    resultString = ""
-                    isLastDigit = false
-                    updateDisplay()
-                }
-            }
-        }
-    }
-
-    private fun evaluateExpr() {
-        if (isLastDigit) {
-            val expr = ExpressionBuilder(inputString).build()
-            resultString = try {
-                isErrorState = false
-                expr.evaluate().toString()
-            } catch (e: ArithmeticException) {
-                isErrorState = true
-                ""
-            } catch (e: Throwable) {
-                isErrorState = true
-                Toast.makeText(this, "Unknown Error while evaluating", Toast.LENGTH_SHORT).show()
-                ""
-            }
-        }
-    }
-
 
 }
