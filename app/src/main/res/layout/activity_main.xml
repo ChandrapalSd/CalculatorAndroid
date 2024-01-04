@@ -188,7 +188,7 @@
                 android:id="@+id/btn_allclear"
                 style="@style/OperatorButton"
                 android:onClick="onAllClearClick"
-                android:textSize="21dp"
+                android:textSize="21sp"
                 android:text="AC" />
 
             <com.google.android.material.button.MaterialButton
@@ -200,7 +200,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_decimal"
                 style="@style/DigitButton"
-                android:onClick="onDigitClick"
+                android:onClick="onDecimalClick"
                 android:text="." />
 
             <com.google.android.material.button.MaterialButton

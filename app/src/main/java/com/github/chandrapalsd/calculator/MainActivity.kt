@@ -1,13 +1,12 @@
 package com.github.chandrapalsd.calculator
 
-import android.os.Build.VERSION
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import com.github.chandrapalsd.calculator.databinding.ActivityMainBinding
-import net.objecthunter.exp4j.Expression
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.lang.ArithmeticException
 
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        hidNavigationBar()
+        hideNavigationBar()
     }
 
     fun updateDisplay() {
@@ -36,6 +35,12 @@ class MainActivity : AppCompatActivity() {
         isLastDigit = true
         evaluateExpr()
         updateDisplay()
+    }
+    fun onDecimalClick(view: View) {
+        if(!isLastDigit) {
+            inputString += "0"
+        }
+        onDigitClick(view)
     }
 
     fun onEqualClick(view: View) {
@@ -117,7 +122,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun hidNavigationBar() {
+    private fun hideNavigationBar() {
         if (android.os.Build.VERSION.SDK_INT < 30) {
             setContentView(binding.root)
             window.decorView.apply {
