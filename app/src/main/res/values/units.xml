@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  Base unit: Meter  -->
+    <string-array name="lengths">
+        <!-- Base -->
+        <item name="meter" symbol="m">1</item>
+
+        <item name="kilometer" symbol="km">1000</item>
+        <item name="hectometer" symbol="hm">100</item>
+        <item name="decameter" symbol="dam">10</item>
+
+        <item name="decimeter" symbol="dm">0.1</item>
+        <item name="centimeter" symbol="cm">0.01</item>
+        <item name="millimeter" symbol="mm">0.001</item>
+        <item name="micrometer" symbol="μm">0.000001</item>
+        <item name="nanometer" symbol="nm">0.000000001</item>
+
+        <item name="mile" symbol="mi">1609.344</item>
+        <item name="yard" symbol="yd">0.9144</item>
+        <item name="foot" symbol="ft">0.3048</item>
+        <item name="inch" symbol="in">0.0254</item>
+    </string-array>
+
+</resources>

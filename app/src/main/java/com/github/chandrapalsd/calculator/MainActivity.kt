@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameLayout, fragment)
-        fragmentTransaction.commit()
+        fragmentTransaction.commitNow()
         drawerLayout.closeDrawers()
         setTitle(title)
     }
