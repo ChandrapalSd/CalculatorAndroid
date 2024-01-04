@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupNavigationDrawer()
-        replaceFragment(MainCalculatorFragment(), "Calculator")
+        replaceFragment(GeneralCalculatorFragment(), getString(R.string.general_calculator_title))
     }
 
     override fun onDestroy() {
@@ -62,8 +62,8 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setNavigationItemSelectedListener {
             it.isChecked = true
             when (it.itemId) {
-                R.id.nav_calculator_basic -> replaceFragment(
-                    MainCalculatorFragment(),
+                R.id.nav_general_calculator -> replaceFragment(
+                    GeneralCalculatorFragment(),
                     it.title.toString()
                 )
 

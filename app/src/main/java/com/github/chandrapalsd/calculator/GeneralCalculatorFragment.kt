@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
-import com.github.chandrapalsd.calculator.databinding.FragmentMainCalculatorBinding
+import com.github.chandrapalsd.calculator.databinding.FragmentGeneralCalculatorBinding
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.lang.ArithmeticException
 
-class MainCalculatorFragment : Fragment() {
+class GeneralCalculatorFragment : Fragment() {
 
-    private var _binding: FragmentMainCalculatorBinding? = null
-    private val binding: FragmentMainCalculatorBinding get() = _binding!!
+    private var _binding: FragmentGeneralCalculatorBinding? = null
+    private val binding: FragmentGeneralCalculatorBinding get() = _binding!!
 
     private var isLastDigit = false
     private var isErrorState = false
@@ -25,7 +25,7 @@ class MainCalculatorFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentMainCalculatorBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentGeneralCalculatorBinding.inflate(layoutInflater, container, false)
         return _binding?.root
     }
 
