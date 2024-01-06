@@ -9,6 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.github.chandrapalsd.calculator.databinding.ActivityMainBinding
+import com.github.chandrapalsd.calculator.ui.generalCalculator.GeneralCalculatorFragment
 
 class MainActivity : AppCompatActivity() {
 
