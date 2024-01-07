@@ -10,7 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.github.chandrapalsd.calculator.databinding.ActivityMainBinding
 import com.github.chandrapalsd.calculator.ui.generalCalculator.GeneralCalculatorFragment
-import com.github.chandrapalsd.calculator.ui.lengthConverterFragment.LengthConverterFragment
+import com.github.chandrapalsd.calculator.ui.lengthconverter.LengthConverterFragment
 
 class MainActivity : AppCompatActivity() {
 

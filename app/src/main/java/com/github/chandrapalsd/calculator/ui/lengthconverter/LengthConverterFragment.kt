@@ -1,4 +1,4 @@
-package com.github.chandrapalsd.calculator.ui.lengthConverterFragment
+package com.github.chandrapalsd.calculator.ui.lengthconverter
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import com.github.chandrapalsd.calculator.databinding.FragmentLengthConverterBinding
 

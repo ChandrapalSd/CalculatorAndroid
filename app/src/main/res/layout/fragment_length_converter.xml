@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="com.github.chandrapalsd.calculator.ui.lengthConverterFragment.LengthConverterViewModel" />
+            type="com.github.chandrapalsd.calculator.ui.lengthconverter.LengthConverterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.lengthConverterFragment.LengthConverterFragment">
+        tools:context=".ui.lengthconverter.LengthConverterFragment">
 
         <TextView
             android:id="@+id/textView"

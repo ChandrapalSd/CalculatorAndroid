@@ -1,4 +1,4 @@
-package com.github.chandrapalsd.calculator.ui.lengthConverterFragment
+package com.github.chandrapalsd.calculator.ui.lengthconverter
 
 import android.content.Context
 import android.util.Log
