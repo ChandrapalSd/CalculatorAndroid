@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.github.chandrapalsd.calculator.databinding.ActivityMainBinding
 import com.github.chandrapalsd.calculator.ui.generalCalculator.GeneralCalculatorFragment
+import com.github.chandrapalsd.calculator.ui.lengthConverterFragment.LengthConverterFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -65,6 +66,11 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.nav_general_calculator -> replaceFragment(
                     GeneralCalculatorFragment(),
+                    it.title.toString()
+                )
+
+                R.id.nav_length_converter -> replaceFragment(
+                    LengthConverterFragment(),
                     it.title.toString()
                 )
 

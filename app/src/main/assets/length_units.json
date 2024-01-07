@@ -1,0 +1,15 @@
+[
+    {"name": "meter",      "unit": "m",   "mf": "1"},
+    {"name": "kilometer",  "unit": "km",  "mf": "1000"},
+    {"name": "hectometer", "unit": "hm",  "mf": "100"},
+    {"name": "decameter",  "unit": "dam", "mf": "10"},
+    {"name": "decimeter",  "unit": "dm",  "mf": "0.1"},
+    {"name": "centimeter", "unit": "cm",  "mf": "0.01"},
+    {"name": "millimeter", "unit": "mm",  "mf": "0.001"},
+    {"name": "micrometer", "unit": "μm",  "mf": "0.000001"},
+    {"name": "nanometer",  "unit": "nm",  "mf": "0.000000001"},
+    {"name": "mile",       "unit": "mi",  "mf": "1609.344"},
+    {"name": "yard",       "unit": "yd",  "mf": "0.9144"},
+    {"name": "foot",       "unit": "ft",  "mf": "0.3048"},
+    {"name": "inch",       "unit": "in",  "mf": "0.0254"}
+]

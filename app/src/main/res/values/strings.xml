@@ -3,4 +3,5 @@
     <string name="open">Opens Navigation drawer</string>
     <string name="close">Closes Navigation drawer</string>
     <string name="general_calculator_title">General Calculator</string>
+    <string name="length_converter_title">Length Converter</string>
 </resources>

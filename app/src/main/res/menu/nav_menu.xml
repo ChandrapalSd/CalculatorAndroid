@@ -6,11 +6,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_general_calculator"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/ic_calculator"
             android:title="@string/general_calculator_title" />
         <item
+            android:id="@+id/nav_length_converter"
+            android:icon="@drawable/ic_ruler"
+            android:title="@string/length_converter_title" />
+        <item
             android:id="@+id/nav_demoitem"
-            android:icon="@drawable/ic_home"
+            android:icon="@drawable/ic_calculator"
             android:title="Demo Item 1" />
 
     </group>
